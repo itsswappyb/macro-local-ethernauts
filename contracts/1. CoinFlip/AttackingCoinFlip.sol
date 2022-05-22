@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 import "./CoinFlip.sol";
-import "hardhat/console.sol";
 
 contract AttackingCoinFlip {
     address public contractAddress;
@@ -18,7 +17,6 @@ contract AttackingCoinFlip {
     function hackContract() external {
         // Code me!
         uint256 blockValue = uint256(blockhash(block.number - 1));
-        console.log("blockvalue: %s", blockValue);
 
         if (lastHash == blockValue) {
             revert("SAME_BLOCK");
