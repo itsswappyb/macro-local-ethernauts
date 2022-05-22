@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
-import helper from "./CoinFlipHelper"
+import helper from "./CoinFlipHelper";
 
 let victim: any;
 let attacker: any;
@@ -17,6 +17,7 @@ describe("Attacking CoinFlip", function () {
   it("Succesfully guessess the correct outcome 10 times in a row", async () => {
     await helper(victim, attacker);
     const consecutiveWins = await victim.consecutiveWins();
+    await attacker.hackContract();
     expect(consecutiveWins).to.be.equal(10);
   });
 });
